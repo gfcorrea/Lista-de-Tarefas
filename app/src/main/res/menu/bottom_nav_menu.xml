@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigationAtivo"
+        android:title="Ativos"
+        android:icon="@drawable/ic_new_foreground"/>
+
+    <item
+        android:id="@+id/navigationConcluidos"
+        android:title="Concluídos"
+        android:icon="@drawable/ic_done_foreground"/>
+
+    <item
+        android:id="@+id/navigationResumo"
+        android:title="Resumo"
+        android:icon="@drawable/ic_done_foreground"/>
+</menu>
