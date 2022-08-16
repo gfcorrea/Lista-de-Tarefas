@@ -8,28 +8,23 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.gfcorrea.listadetarefas.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
-
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        BottomNavigationView bottomNavigationView = findViewById(
-                R.id.bottomNavigationView
-        );
-
+        //Os IDs dos itens do menu no bottom_nav_menu.xml tem que ser iguais aos IDs dos fragments no nav_host.xml
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigationAtivo,
                 R.id.navigationConcluidos,
                 R.id.navigationResumo
         ).build();
-
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
 
@@ -37,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
-
+        NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);
     }
-
-
 }
