@@ -9,10 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gfcorrea.listadetarefas.R;
+import com.gfcorrea.listadetarefas.databinding.FragmentConcluidoBinding;
 
 
 public class ConcluidoFragment extends Fragment {
-
+    private FragmentConcluidoBinding binding;
 
     public ConcluidoFragment() {
         // Required empty public constructor
@@ -27,7 +28,9 @@ public class ConcluidoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_concluido, container, false);
+        binding = FragmentConcluidoBinding.inflate(getLayoutInflater());
+
+
+        return binding.getRoot();
     }
 }
