@@ -1,7 +1,14 @@
 package com.gfcorrea.listadetarefas;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
+
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.databinding.ActivityMainBinding;
 
@@ -16,6 +23,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         AppDatabase.setContexto(getApplicationContext());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.novaTarefa:
+                Navigation.findNavController(binding.getRoot().getViewById(R.id.nav_global_view) ).navigate(R.id.action_homeFragment_to_tarefaFragment);
+                break;
+        }
+        return true;
     }
 
     /*

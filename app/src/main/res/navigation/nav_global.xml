@@ -9,5 +9,22 @@
         android:id="@+id/homeFragment"
         android:name="com.gfcorrea.listadetarefas.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_tarefaFragment"
+            app:destination="@id/tarefaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/tarefaFragment"
+        android:name="com.gfcorrea.listadetarefas.fragments.TarefaFragment"
+        android:label="fragment_tarefa"
+        tools:layout="@layout/fragment_tarefa" >
+        <action
+            android:id="@+id/action_tarefaFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
 </navigation>
