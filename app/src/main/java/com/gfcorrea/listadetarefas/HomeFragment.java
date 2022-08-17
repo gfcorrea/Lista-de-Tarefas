@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -37,8 +38,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
 
         //Em um fragment devemos usar o getChildFragmentManager
-        NavHostFragment navHostFragment = (NavHostFragment)  getChildFragmentManager()
-                .findFragmentById(R.id.nav_host_view);
+        NavHostFragment navHostFragment = (NavHostFragment)  getChildFragmentManager().findFragmentById(R.id.nav_host_view);
         NavController navController = navHostFragment.getNavController();
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
