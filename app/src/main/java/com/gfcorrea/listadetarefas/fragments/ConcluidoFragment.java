@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gfcorrea.listadetarefas.adapter.ListaAtivosAdapter;
+import com.gfcorrea.listadetarefas.adapter.ListaConcluidosAdapter;
 import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.databinding.FragmentConcluidoBinding;
 
@@ -20,7 +20,6 @@ public class ConcluidoFragment extends Fragment {
         // Required empty public constructor
     }
 
-//
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +30,7 @@ public class ConcluidoFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentConcluidoBinding.inflate(getLayoutInflater());
 
-
-        ListaAtivosAdapter adapter = new ListaAtivosAdapter(AppDatabase.getInstance().tarefaDao().getAllConcluidos());
+        ListaConcluidosAdapter adapter = new ListaConcluidosAdapter(AppDatabase.getInstance().tarefaDao().getAllConcluidos());
         binding.recylcerListaConcluido.setAdapter(adapter);
 
         return binding.getRoot();
