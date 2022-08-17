@@ -9,6 +9,7 @@
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_resumo.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/recycler_item_tarefa_ativa.xml" value="0.365625" />
+        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/recycler_item_tarefa_concluida.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
       </map>
     </option>

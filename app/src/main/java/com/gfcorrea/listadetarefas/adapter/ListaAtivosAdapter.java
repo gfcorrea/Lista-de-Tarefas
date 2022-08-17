@@ -43,7 +43,6 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
     public class ListaAtivosHolder extends RecyclerView.ViewHolder{
         RecyclerItemTarefaAtivaBinding binding;
 
-
         public ListaAtivosHolder(@NonNull RecyclerItemTarefaAtivaBinding binding) {
             super(binding.getRoot());
             this.binding = binding;

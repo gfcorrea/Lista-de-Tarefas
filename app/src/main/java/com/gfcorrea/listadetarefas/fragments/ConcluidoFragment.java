@@ -8,7 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gfcorrea.listadetarefas.R;
+import com.gfcorrea.listadetarefas.adapter.ListaAtivosAdapter;
+import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.databinding.FragmentConcluidoBinding;
 
 
@@ -30,6 +31,9 @@ public class ConcluidoFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentConcluidoBinding.inflate(getLayoutInflater());
 
+
+        ListaAtivosAdapter adapter = new ListaAtivosAdapter(AppDatabase.getInstance().tarefaDao().getAllConcluidos());
+        binding.recylcerListaConcluido.setAdapter(adapter);
 
         return binding.getRoot();
     }
