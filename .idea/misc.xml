@@ -3,21 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2655" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2655" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/drawable/ic_new_foreground.xml" value="0.2655" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/drawable/ic_resumo_background.xml" value="0.2655" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_ativo.xml" value="0.35260416666666666" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_concluido.xml" value="0.36666666666666664" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_resumo.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_tarefa.xml" value="0.36666666666666664" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/recycler_item_tarefa_ativa.xml" value="0.365625" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/recycler_item_tarefa_concluida.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/menu/top_buttom_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/menu/top_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
