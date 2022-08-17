@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 
 import com.gfcorrea.listadetarefas.databinding.FragmentHomeBinding;
 
-
+//
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;

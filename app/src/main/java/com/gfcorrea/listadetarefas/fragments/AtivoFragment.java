@@ -15,7 +15,7 @@ import com.gfcorrea.listadetarefas.databinding.FragmentAtivoBinding;
 public class AtivoFragment extends Fragment {
 
     private FragmentAtivoBinding binding;
-
+//
     public AtivoFragment() {
         // Required empty public constructor
     }

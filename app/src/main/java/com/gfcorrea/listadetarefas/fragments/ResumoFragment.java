@@ -19,7 +19,7 @@ public class ResumoFragment extends Fragment {
     public ResumoFragment() {
 
     }
-
+//
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

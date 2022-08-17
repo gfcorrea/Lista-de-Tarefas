@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "tarefa")
 public class TarefaModel {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private long id;
 
     @ColumnInfo(name = "descricao")
