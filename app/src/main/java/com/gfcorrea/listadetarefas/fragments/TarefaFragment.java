@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.gfcorrea.listadetarefas.R;
-import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.database.TarefaModel;
 import com.gfcorrea.listadetarefas.databinding.FragmentTarefaBinding;
 import com.gfcorrea.listadetarefas.repository.TarefaRepository;
