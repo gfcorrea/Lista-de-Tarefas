@@ -54,15 +54,14 @@ public class ResumoFragment extends Fragment {
         binding.pieChartResumo.setEntryLabelTextSize(12);
         binding.pieChartResumo.setEntryLabelColor(Color.BLACK);
         binding.pieChartResumo.setCenterText("Resumo das Tarefas");
-        binding.pieChartResumo.setCenterTextSize(24);
+        binding.pieChartResumo.setCenterTextSize(16);
         binding.pieChartResumo.getDescription().setEnabled(false);
 
-        Legend l = new Legend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-        l.setDrawInside(false);
-        l.setEnabled(true);
+        binding.pieChartResumo.getLegend().setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        binding.pieChartResumo.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        binding.pieChartResumo.getLegend().setOrientation(Legend.LegendOrientation.VERTICAL);
+        binding.pieChartResumo.getLegend().setDrawInside(false);
+        binding.pieChartResumo.getLegend().setEnabled(false);
     }
 
     public void loadPieData(){
