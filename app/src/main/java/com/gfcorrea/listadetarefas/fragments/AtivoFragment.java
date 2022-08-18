@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gfcorrea.listadetarefas.R;
 import com.gfcorrea.listadetarefas.adapter.ListaAtivosAdapter;
 import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.database.TarefaModel;

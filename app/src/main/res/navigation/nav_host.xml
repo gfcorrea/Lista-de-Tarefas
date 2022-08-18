@@ -7,16 +7,16 @@
     <fragment
         android:id="@+id/navigationAtivo"
         android:name="com.gfcorrea.listadetarefas.fragments.AtivoFragment"
-        android:label="fragment_ativo"
+        android:label="Tarefas Ativas"
         tools:layout="@layout/fragment_ativo" />
     <fragment
         android:id="@+id/navigationConcluidos"
         android:name="com.gfcorrea.listadetarefas.fragments.ConcluidoFragment"
-        android:label="fragment_concluido"
+        android:label="Tarefas Concluídas"
         tools:layout="@layout/fragment_concluido" />
     <fragment
         android:id="@+id/navigationResumo"
         android:name="com.gfcorrea.listadetarefas.fragments.ResumoFragment"
-        android:label="fragment_resumo"
+        android:label="Resumo de suas Tarefas"
         tools:layout="@layout/fragment_resumo" />
 </navigation>

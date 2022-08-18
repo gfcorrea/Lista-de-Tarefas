@@ -1,5 +1,6 @@
 package com.gfcorrea.listadetarefas;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
@@ -7,7 +8,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.databinding.ActivityMainBinding;

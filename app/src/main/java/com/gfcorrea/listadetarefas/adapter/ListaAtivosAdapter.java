@@ -43,6 +43,8 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
 
         if(listaTarefas.get(position).getData() < Calendar.getInstance().getTimeInMillis() ){
             holder.binding.CVAtivos.setBackgroundResource(R.color.red);
+        }else{
+            holder.binding.CVAtivos.setBackgroundResource(R.color.grey);
         }
 
     }
