@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.gfcorrea.listadetarefas.databinding.FragmentResumoBinding;
+import com.gfcorrea.listadetarefas.repository.TarefaRepository;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -39,6 +41,7 @@ public class ResumoFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentResumoBinding.inflate(getLayoutInflater());
 
+
         setupPieChart();
         loadPieData();
 
@@ -63,11 +66,20 @@ public class ResumoFragment extends Fragment {
     }
 
     public void loadPieData(){
-        List<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(0.33f, "Ativos"));
-        entries.add(new PieEntry(0.33f, "Concluídos"));
-        entries.add(new PieEntry(0.33f, "Atrasados"));
+        TarefaRepository tarefaRepository = new TarefaRepository();
 
+        float totAtrasados  = tarefaRepository.getTotalAtrasados();
+        float totAtivos     = tarefaRepository.getTotalAtivos() - totAtrasados;
+        float totConcluidos = tarefaRepository.getTotalConcluidos();
+
+        float totGeral = totAtivos + totConcluidos + totAtrasados;
+
+        List<PieEntry> entries = new ArrayList<>();
+        entries.add(new PieEntry((totAtivos * 100)/totGeral, "Ativos"));
+        entries.add(new PieEntry((totConcluidos * 100)/totGeral, "Concluídos"));
+        entries.add(new PieEntry((totAtrasados * 100)/totGeral, "Atrasados"));
+
+        Toast.makeText(getContext(), "g:"+totGeral+" -A: "+totAtivos+" -C: "+totConcluidos+" -At: "+totAtrasados, Toast.LENGTH_LONG).show();
         ArrayList<Integer> colors = new ArrayList<>();
         for(int color: ColorTemplate.MATERIAL_COLORS){
             colors.add(color);

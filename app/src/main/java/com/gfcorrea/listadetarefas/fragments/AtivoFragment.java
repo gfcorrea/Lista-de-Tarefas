@@ -22,6 +22,7 @@ public class AtivoFragment extends Fragment {
     private FragmentAtivoBinding binding;
     private List<TarefaModel> lista;
 
+
     public AtivoFragment() {
         // Required empty public constructor
     }
