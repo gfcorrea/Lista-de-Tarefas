@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
 
 import com.gfcorrea.listadetarefas.databinding.FragmentResumoBinding;
 import com.gfcorrea.listadetarefas.repository.TarefaRepository;
@@ -79,7 +79,6 @@ public class ResumoFragment extends Fragment {
         entries.add(new PieEntry((totConcluidos * 100)/totGeral, "Concluídos"));
         entries.add(new PieEntry((totAtrasados * 100)/totGeral, "Atrasados"));
 
-        Toast.makeText(getContext(), "g:"+totGeral+" -A: "+totAtivos+" -C: "+totConcluidos+" -At: "+totAtrasados, Toast.LENGTH_LONG).show();
         ArrayList<Integer> colors = new ArrayList<>();
         for(int color: ColorTemplate.MATERIAL_COLORS){
             colors.add(color);
