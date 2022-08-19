@@ -4,7 +4,6 @@ import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.database.TarefaModel;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class TarefaRepository {
