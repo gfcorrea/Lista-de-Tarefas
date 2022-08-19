@@ -2,26 +2,19 @@ package com.gfcorrea.listadetarefas.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-
 import com.gfcorrea.listadetarefas.databinding.FragmentResumoBinding;
 import com.gfcorrea.listadetarefas.repository.TarefaRepository;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class ResumoFragment extends Fragment {
 
@@ -41,7 +34,6 @@ public class ResumoFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentResumoBinding.inflate(getLayoutInflater());
 
-
         setupPieChart();
         loadPieData();
 
@@ -56,11 +48,6 @@ public class ResumoFragment extends Fragment {
         binding.pieChartResumo.setCenterText("Resumo das Tarefas");
         binding.pieChartResumo.setCenterTextSize(16);
         binding.pieChartResumo.getDescription().setEnabled(false);
-
-        binding.pieChartResumo.getLegend().setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        binding.pieChartResumo.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        binding.pieChartResumo.getLegend().setOrientation(Legend.LegendOrientation.VERTICAL);
-        binding.pieChartResumo.getLegend().setDrawInside(false);
         binding.pieChartResumo.getLegend().setEnabled(false);
     }
 
@@ -74,8 +61,8 @@ public class ResumoFragment extends Fragment {
         float totGeral = totAtivos + totConcluidos + totAtrasados;
 
         List<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry((totAtivos * 100)/totGeral, "Ativos"));
         entries.add(new PieEntry((totConcluidos * 100)/totGeral, "Concluídos"));
+        entries.add(new PieEntry((totAtivos * 100)/totGeral, "Ativos"));
         entries.add(new PieEntry((totAtrasados * 100)/totGeral, "Atrasados"));
 
         ArrayList<Integer> colors = new ArrayList<>();
