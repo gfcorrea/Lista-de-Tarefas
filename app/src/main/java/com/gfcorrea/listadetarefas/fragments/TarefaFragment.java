@@ -1,7 +1,9 @@
 package com.gfcorrea.listadetarefas.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -23,7 +25,7 @@ import java.util.Date;
 
 public class TarefaFragment extends Fragment {
     private FragmentTarefaBinding binding;
-    private TarefaRepository tarefaRepository = new TarefaRepository();
+    private final TarefaRepository tarefaRepository = new TarefaRepository();
     private long dataSelecionada = 0;
 
     public TarefaFragment() {
@@ -36,7 +38,7 @@ public class TarefaFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentTarefaBinding.inflate(getLayoutInflater());
 
@@ -66,9 +68,10 @@ public class TarefaFragment extends Fragment {
 
     private void ShowDateDialog() {
 
-        MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.datePicker().setTitleText("Selecione uma Data").build();
+        MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker().setTitleText("Selecione uma Data").build();
 
         materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onPositiveButtonClick(Object selection) {
 
@@ -76,7 +79,7 @@ public class TarefaFragment extends Fragment {
                 dataSelecionada = Long.parseLong(longV);
 
                 String dateString = new SimpleDateFormat("dd/MM/yyyy").format( new Date(dataSelecionada) );
-                binding.tvDataTarefa.setText("" + dateString);
+                binding.tvDataTarefa.setText(dateString);
             }
         });
 
