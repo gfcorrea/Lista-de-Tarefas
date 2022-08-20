@@ -48,18 +48,18 @@
             android:padding="8dp">
 
             <TextView
-                android:id="@+id/tv_tarefasativas"
+                android:id="@+id/tv_tarefasfuturas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Tarefas Ativas:" />
+                android:text="Tarefas Futuras:" />
 
             <TextView
                 android:id="@+id/tv_tarefasconcluidas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_tarefasativas"
+                android:layout_below="@id/tv_tarefasfuturas"
                 android:layout_marginTop="8dp"
                 android:text="Tarefas Concluídas:" />
 
@@ -72,7 +72,7 @@
                 android:text="Tarefas Atrasadas:" />
 
             <TextView
-                android:id="@+id/TvNumTarefasAtivas"
+                android:id="@+id/TvNumTarefasFuturas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -83,7 +83,7 @@
                 android:id="@+id/TvNumTarefasConcluidas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/TvNumTarefasAtivas"
+                android:layout_below="@id/TvNumTarefasFuturas"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="8dp"
                 android:text="0" />

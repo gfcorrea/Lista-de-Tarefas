@@ -12,16 +12,16 @@ public class TarefaRepository {
         AppDatabase.getInstance().tarefaDao().insertAll(tarefa);
     }
 
-    public List<TarefaModel> getListaAtivos() {
-        return AppDatabase.getInstance().tarefaDao().getAllAtivos();
+    public List<TarefaModel> getListaFuturas() {
+        return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance().getTimeInMillis());
     }
 
     public List<TarefaModel> getListaConcluidos() {
         return AppDatabase.getInstance().tarefaDao().getAllConcluidos();
     }
 
-    public int getTotalAtivos(){
-        return AppDatabase.getInstance().tarefaDao().getAllAtivos().size();
+    public int getTotalFuturas(){
+        return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance().getTimeInMillis()).size();
     }
 
     public int getTotalConcluidos(){

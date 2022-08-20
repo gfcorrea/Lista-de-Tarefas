@@ -14,6 +14,9 @@ public interface TarefaDao {
     @Query("SELECT * FROM tarefa where concluido = 0 order by data")
     List<TarefaModel> getAllAtivos();
 
+    @Query("SELECT * FROM tarefa where concluido = 0 and data >= :hoje order by data")
+    List<TarefaModel> getAllFuturas(long hoje);
+
     @Query("SELECT * FROM tarefa where concluido = 1 order by data desc")
     List<TarefaModel> getAllConcluidos();
 
