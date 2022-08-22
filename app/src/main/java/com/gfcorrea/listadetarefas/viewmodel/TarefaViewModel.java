@@ -6,7 +6,8 @@ import com.gfcorrea.listadetarefas.database.TarefaModel;
 
 public class TarefaViewModel extends ViewModel {
 
-    private TarefaModel tarefa = new TarefaModel();
+    private final TarefaModel tarefa = new TarefaModel();
+
     private long dataSelecionada = 0;
 
     public long getDataSelecionada() {
