@@ -20,6 +20,7 @@ public class TarefaViewModel extends ViewModel {
 
     public void carregarTarefa(long id){
       tarefa = tarefaRepository.getById(id);
+      calendar.setTimeInMillis(tarefa.getData());
     }
 
     public void setDateCalendar(Calendar calendarUser){
@@ -36,5 +37,12 @@ public class TarefaViewModel extends ViewModel {
 
     public void setDescricao(String descricao) {
         this.tarefa.setDescricao(descricao);
+    }
+    
+    public String getDescricao() {
+        return this.tarefa.getDescricao();
+    }
+    public long getDateTimeInMillis(){
+        return calendar.getTimeInMillis();
     }
 }

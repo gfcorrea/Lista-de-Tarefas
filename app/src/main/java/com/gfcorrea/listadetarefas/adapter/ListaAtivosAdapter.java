@@ -1,17 +1,23 @@
 package com.gfcorrea.listadetarefas.adapter;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gfcorrea.listadetarefas.R;
 import com.gfcorrea.listadetarefas.database.TarefaModel;
 import com.gfcorrea.listadetarefas.databinding.RecyclerItemTarefaAtivaBinding;
+import com.gfcorrea.listadetarefas.fragments.TarefaFragment;
 
 import android.text.format.DateFormat;
+import android.widget.Toast;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -35,7 +41,6 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ListaAtivosHolder holder, int position) {
-
         holder.binding.lblDescricao.setText(listaTarefas.get(position).getDescricao());
         holder.binding.lblData.setText( DateFormat.format("dd/MM/yyyy   HH:mm", listaTarefas.get(position).getData()) );
 
@@ -44,7 +49,6 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
         }else{
             holder.binding.CVAtivos.setBackgroundResource(R.color.purple_500);
         }
-
     }
 
     @Override
@@ -52,12 +56,22 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
         return listaTarefas.size();
     }
 
-    public static class ListaAtivosHolder extends RecyclerView.ViewHolder{
+    public class ListaAtivosHolder extends RecyclerView.ViewHolder{
         RecyclerItemTarefaAtivaBinding binding;
 
         public ListaAtivosHolder(@NonNull RecyclerItemTarefaAtivaBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle bundle = new Bundle();
+                    bundle.putLong("tarefa_id",  listaTarefas.get( getAdapterPosition() ).getId()  );
+
+                    Navigation.findNavController( binding.getRoot().getRootView().findViewById(R.id.nav_global_view) ).navigate(R.id.action_homeFragment_to_tarefaFragment, bundle);
+                }
+            });
         }
     }
 

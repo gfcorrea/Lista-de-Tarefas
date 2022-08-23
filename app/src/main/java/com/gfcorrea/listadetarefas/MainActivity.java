@@ -40,19 +40,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-
-    /*
-    public long converteData(String data){
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date dataFormatada = null;
-
-        try {
-            dataFormatada = formato.parse(data);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return dataFormatada.getTime();
-    }
-*/
 }

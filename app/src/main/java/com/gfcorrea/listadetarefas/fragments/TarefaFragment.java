@@ -25,7 +25,6 @@ import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClic
 import java.util.Calendar;
 
 
-
 public class TarefaFragment extends Fragment {
     private FragmentTarefaBinding binding;
     private TarefaViewModel tarefaViewModel;
@@ -43,10 +42,17 @@ public class TarefaFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentTarefaBinding.inflate(getLayoutInflater());
 
+        binding = FragmentTarefaBinding.inflate(getLayoutInflater());
         tarefaViewModel = new ViewModelProvider(this).get(TarefaViewModel.class);
         calendar = Calendar.getInstance();
+
+        if( getArguments().get("tarefa_id") != null ){
+            long id = (long) getArguments().get("tarefa_id");
+            tarefaViewModel.carregarTarefa(id);
+            calendar.setTimeInMillis(tarefaViewModel.getDateTimeInMillis());
+            binding.txtDescricao.setText(tarefaViewModel.getDescricao());
+        }
 
         binding.tvHoraTarefa.setText(DateFormat.format("HH:mm", calendar));
         binding.tvDataTarefa.setText(DateFormat.format("dd/MM/yyyy", calendar));
