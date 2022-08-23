@@ -5,6 +5,7 @@ import com.gfcorrea.listadetarefas.database.TarefaModel;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 public class TarefaRepository {
 
@@ -17,7 +18,7 @@ public class TarefaRepository {
     }
 
     public List<TarefaModel> getListaFuturas() {
-        return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance().getTimeInMillis());
+        return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis());
     }
 
     public List<TarefaModel> getListaConcluidos() {
@@ -25,7 +26,7 @@ public class TarefaRepository {
     }
 
     public int getTotalFuturas(){
-        return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance().getTimeInMillis()).size();
+        return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis()).size();
     }
 
     public int getTotalConcluidos(){
@@ -33,7 +34,7 @@ public class TarefaRepository {
     }
 
     public int getTotalAtrasados(){
-        return AppDatabase.getInstance().tarefaDao().getAtrasados( Calendar.getInstance().getTimeInMillis() ).size();
+        return AppDatabase.getInstance().tarefaDao().getAtrasados( Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() ).size();
     }
 
 }

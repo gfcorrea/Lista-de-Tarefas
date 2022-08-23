@@ -23,6 +23,7 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 
 public class TarefaFragment extends Fragment {
@@ -45,13 +46,26 @@ public class TarefaFragment extends Fragment {
 
         binding = FragmentTarefaBinding.inflate(getLayoutInflater());
         tarefaViewModel = new ViewModelProvider(this).get(TarefaViewModel.class);
-        calendar = Calendar.getInstance();
+        calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
 
         if( getArguments() != null ){
             long id = (long) getArguments().get("tarefa_id");
             tarefaViewModel.carregarTarefa(id);
             calendar.setTimeInMillis(tarefaViewModel.getDateTimeInMillis());
             binding.txtDescricao.setText(tarefaViewModel.getDescricao());
+            binding.btnConcluido.setVisibility(View.VISIBLE);
+
+            binding.btnConcluido.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    tarefaViewModel.setDescricao(binding.txtDescricao.getText().toString());
+                    tarefaViewModel.concluirTarefa();
+
+                    Toast.makeText(getContext(), "Concluído com Sucesso!", Toast.LENGTH_SHORT).show();
+                    Navigation.findNavController(view).navigate(R.id.action_tarefaFragment_to_homeFragment);
+                }
+            });
+
         }
 
         binding.tvHoraTarefa.setText(DateFormat.format("HH:mm", calendar));
@@ -102,7 +116,7 @@ public class TarefaFragment extends Fragment {
                 }
                 , 12, 0, true);
 
-        timePickerDialog.updateTime(12, 0);
+        timePickerDialog.updateTime(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
         timePickerDialog.show();
     }
 
@@ -116,7 +130,8 @@ public class TarefaFragment extends Fragment {
             public void onPositiveButtonClick(Object selection) {
 
                 if(materialDatePicker.getSelection() != null) {
-                    calendar.setTimeInMillis(materialDatePicker.getSelection());
+
+                    calendar.setTimeInMillis(materialDatePicker.getSelection() );
 
                     tarefaViewModel.setDateCalendar(calendar);
 
@@ -125,7 +140,6 @@ public class TarefaFragment extends Fragment {
 
             }
         });
-
         materialDatePicker.show(getChildFragmentManager(), "TAG");
     }
 }

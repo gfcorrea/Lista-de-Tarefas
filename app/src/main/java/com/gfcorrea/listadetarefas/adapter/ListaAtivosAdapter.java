@@ -13,13 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.gfcorrea.listadetarefas.R;
 import com.gfcorrea.listadetarefas.database.TarefaModel;
 import com.gfcorrea.listadetarefas.databinding.RecyclerItemTarefaAtivaBinding;
-import com.gfcorrea.listadetarefas.fragments.TarefaFragment;
 
 import android.text.format.DateFormat;
-import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 
 public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.ListaAtivosHolder> {
@@ -41,8 +40,12 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ListaAtivosHolder holder, int position) {
+
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        calendar.setTimeInMillis(listaTarefas.get(position).getData());
+
         holder.binding.lblDescricao.setText(listaTarefas.get(position).getDescricao());
-        holder.binding.lblData.setText( DateFormat.format("dd/MM/yyyy   HH:mm", listaTarefas.get(position).getData()) );
+        holder.binding.lblData.setText( DateFormat.format("dd/MM/yyyy   HH:mm", calendar) );
 
         if(listaTarefas.get(position).getData() < Calendar.getInstance().getTimeInMillis() ){
             holder.binding.CVAtivos.setBackgroundResource(R.color.red);

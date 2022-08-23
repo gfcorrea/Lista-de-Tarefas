@@ -91,9 +91,9 @@ public class ResumoFragment extends Fragment {
         float totGeral = totAtivos + totConcluidos + totAtrasados;
 
         List<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry((totConcluidos * 100) / totGeral, "Concluídos"));
-        entries.add(new PieEntry((totAtivos * 100) / totGeral, "Futuras"));
-        entries.add(new PieEntry((totAtrasados * 100) / totGeral, "Atrasados"));
+        if(totConcluidos > 0) entries.add(new PieEntry((totConcluidos * 100) / totGeral, "Concluídos"));
+        if(totAtivos > 0) entries.add(new PieEntry((totAtivos * 100) / totGeral, "Futuras"));
+        if(totAtrasados > 0 ) entries.add(new PieEntry((totAtrasados * 100) / totGeral, "Atrasados"));
 
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color : ColorTemplate.MATERIAL_COLORS) {

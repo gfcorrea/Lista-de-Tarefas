@@ -72,4 +72,13 @@
         android:contentDescription="Salvar"
         android:text="Salvar" />
 
+    <Button
+        android:id="@+id/btnConcluido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Marcar como Concluído"
+        android:visibility="gone" />
+
 </LinearLayout>

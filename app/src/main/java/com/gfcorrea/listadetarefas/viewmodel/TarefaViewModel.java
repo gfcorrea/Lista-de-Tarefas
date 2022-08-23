@@ -6,15 +6,16 @@ import com.gfcorrea.listadetarefas.database.TarefaModel;
 import com.gfcorrea.listadetarefas.repository.TarefaRepository;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 public class TarefaViewModel extends ViewModel {
 
     private TarefaModel tarefa = new TarefaModel();
     private final TarefaRepository tarefaRepository = new TarefaRepository();
-    private final Calendar calendar = Calendar.getInstance();
+    private final Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
 
     public void salvarTarefa(){
-        tarefa.setData(calendar.getTimeInMillis());
+        tarefa.setData(calendar.getTimeInMillis( ));
         tarefaRepository.inserir(tarefa);
     }
 
@@ -33,6 +34,12 @@ public class TarefaViewModel extends ViewModel {
         this.calendar.set(Calendar.HOUR_OF_DAY, calendarUser.get(Calendar.HOUR_OF_DAY));
         this.calendar.set(Calendar.MINUTE, calendarUser.get(Calendar.MINUTE));
         this.calendar.set(Calendar.SECOND, calendarUser.get(Calendar.SECOND));
+    }
+
+    public void concluirTarefa(){
+        tarefa.setConcluido(true);
+        tarefa.setData(calendar.getTimeInMillis());
+        tarefaRepository.inserir(tarefa);
     }
 
     public void setDescricao(String descricao) {
