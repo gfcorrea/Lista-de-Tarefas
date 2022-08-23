@@ -49,11 +49,13 @@ public class TarefaFragment extends Fragment {
         calendar = Calendar.getInstance(TimeZone.getDefault());
 
         if( getArguments() != null ){
+
             long id = (long) getArguments().get("tarefa_id");
             tarefaViewModel.carregarTarefa(id);
             calendar.setTimeInMillis(tarefaViewModel.getDateTimeInMillis());
             binding.txtDescricao.setText(tarefaViewModel.getDescricao());
             binding.btnConcluido.setVisibility(View.VISIBLE);
+            binding.btnExcluirTarefa.setVisibility(View.VISIBLE);
 
             binding.btnConcluido.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,6 +68,14 @@ public class TarefaFragment extends Fragment {
                 }
             });
 
+            binding.btnExcluirTarefa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    tarefaViewModel.excluirTarefa();
+                    Toast.makeText(getContext(), "Excluído com Sucesso!", Toast.LENGTH_SHORT).show();
+                    Navigation.findNavController(view).navigate(R.id.action_tarefaFragment_to_homeFragment);
+                }
+            });
         }
 
         binding.tvHoraTarefa.setText(DateFormat.format("HH:mm", calendar));

@@ -6,11 +6,15 @@
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_ativo.xml" value="0.35260416666666666" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_concluido.xml" value="0.36666666666666664" />
+        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_resumo.xml" value="0.25" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/fragment_tarefa.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/recycler_item_tarefa_ativa.xml" value="0.75" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/layout/recycler_item_tarefa_concluida.xml" value="0.36666666666666664" />
         <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/menu/top_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
+        <entry key="..\:/Projetos/Lista-de-Tarefas/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.196" />
       </map>
     </option>
   </component>

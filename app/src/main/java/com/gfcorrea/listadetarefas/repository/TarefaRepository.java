@@ -1,6 +1,7 @@
 package com.gfcorrea.listadetarefas.repository;
 
 import com.gfcorrea.listadetarefas.database.AppDatabase;
+import com.gfcorrea.listadetarefas.database.TarefaDao;
 import com.gfcorrea.listadetarefas.database.TarefaModel;
 
 import java.util.Calendar;
@@ -8,33 +9,38 @@ import java.util.List;
 import java.util.TimeZone;
 
 public class TarefaRepository {
+    TarefaDao tarefaDao = AppDatabase.getInstance().tarefaDao();
 
     public void inserir(TarefaModel tarefa) {
-        AppDatabase.getInstance().tarefaDao().insertAll(tarefa);
+       tarefaDao.insertAll(tarefa);
     }
 
     public TarefaModel getById(long id){
-        return AppDatabase.getInstance().tarefaDao().getById(id);
+        return tarefaDao.getById(id);
     }
 
     public List<TarefaModel> getListaFuturas() {
-        return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis());
+        return tarefaDao.getAllFuturas(Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis());
     }
 
     public List<TarefaModel> getListaConcluidos() {
-        return AppDatabase.getInstance().tarefaDao().getAllConcluidos();
+        return tarefaDao.getAllConcluidos();
     }
 
     public int getTotalFuturas(){
-        return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis()).size();
+        return tarefaDao.getAllFuturas(Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis()).size();
     }
 
     public int getTotalConcluidos(){
-        return AppDatabase.getInstance().tarefaDao().getAllConcluidos().size();
+        return tarefaDao.getAllConcluidos().size();
     }
 
     public int getTotalAtrasados(){
-        return AppDatabase.getInstance().tarefaDao().getAtrasados( Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() ).size();
+        return tarefaDao.getAtrasados( Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() ).size();
+    }
+
+    public void excluirTarefa(TarefaModel tarefa){
+      tarefaDao.delete(tarefa);
     }
 
 }

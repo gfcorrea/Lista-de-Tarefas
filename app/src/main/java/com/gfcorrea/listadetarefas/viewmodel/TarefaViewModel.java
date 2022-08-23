@@ -42,6 +42,9 @@ public class TarefaViewModel extends ViewModel {
         tarefaRepository.inserir(tarefa);
     }
 
+    public void excluirTarefa(){
+        tarefaRepository.excluirTarefa(tarefa);
+    }
     public void setDescricao(String descricao) {
         this.tarefa.setDescricao(descricao);
     }
