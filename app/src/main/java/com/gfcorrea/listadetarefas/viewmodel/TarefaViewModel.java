@@ -12,10 +12,10 @@ public class TarefaViewModel extends ViewModel {
 
     private TarefaModel tarefa = new TarefaModel();
     private final TarefaRepository tarefaRepository = new TarefaRepository();
-    private final Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+    private final Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
 
     public void salvarTarefa(){
-        tarefa.setData(calendar.getTimeInMillis( ));
+        tarefa.setData(calendar.getTimeInMillis());
         tarefaRepository.inserir(tarefa);
     }
 

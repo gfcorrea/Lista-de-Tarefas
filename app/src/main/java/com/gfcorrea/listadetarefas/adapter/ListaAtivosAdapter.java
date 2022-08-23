@@ -41,13 +41,13 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
     @Override
     public void onBindViewHolder(@NonNull ListaAtivosHolder holder, int position) {
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         calendar.setTimeInMillis(listaTarefas.get(position).getData());
 
         holder.binding.lblDescricao.setText(listaTarefas.get(position).getDescricao());
         holder.binding.lblData.setText( DateFormat.format("dd/MM/yyyy   HH:mm", calendar) );
 
-        if(listaTarefas.get(position).getData() < Calendar.getInstance().getTimeInMillis() ){
+        if(listaTarefas.get(position).getData() < Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() ){
             holder.binding.CVAtivos.setBackgroundResource(R.color.red);
         }else{
             holder.binding.CVAtivos.setBackgroundResource(R.color.purple_500);

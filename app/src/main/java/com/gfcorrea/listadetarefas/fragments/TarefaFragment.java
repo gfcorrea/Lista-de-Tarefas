@@ -46,7 +46,7 @@ public class TarefaFragment extends Fragment {
 
         binding = FragmentTarefaBinding.inflate(getLayoutInflater());
         tarefaViewModel = new ViewModelProvider(this).get(TarefaViewModel.class);
-        calendar = Calendar.getInstance(TimeZone.getDefault());
+        calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
 
         if( getArguments() != null ){
 
@@ -54,6 +54,7 @@ public class TarefaFragment extends Fragment {
             tarefaViewModel.carregarTarefa(id);
             calendar.setTimeInMillis(tarefaViewModel.getDateTimeInMillis());
             binding.txtDescricao.setText(tarefaViewModel.getDescricao());
+            binding.tvTitulo.setText("Dados da Tarefa");
             binding.btnConcluido.setVisibility(View.VISIBLE);
             binding.btnExcluirTarefa.setVisibility(View.VISIBLE);
 
@@ -140,14 +141,8 @@ public class TarefaFragment extends Fragment {
             public void onPositiveButtonClick(Object selection) {
 
                 if(materialDatePicker.getSelection() != null) {
-                    //Pegando a data do MaterialDatePicker que esta sempre em UTC
-                    Calendar calendarUTC = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-                    calendarUTC.setTimeInMillis(materialDatePicker.getSelection());
 
-                    //Convertendo para o TimeZone do dispositivo.
-                    calendar.set(Calendar.YEAR, calendarUTC.get(Calendar.YEAR));
-                    calendar.set(Calendar.MONTH, calendarUTC.get(Calendar.MONTH));
-                    calendar.set(Calendar.DAY_OF_MONTH, calendarUTC.get(Calendar.DAY_OF_MONTH));
+                    calendar.setTimeInMillis(materialDatePicker.getSelection());
 
                     tarefaViewModel.setDateCalendar(calendar);
 
