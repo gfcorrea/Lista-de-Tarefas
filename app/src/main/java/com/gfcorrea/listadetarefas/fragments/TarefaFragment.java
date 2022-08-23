@@ -23,6 +23,7 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 
@@ -46,7 +47,7 @@ public class TarefaFragment extends Fragment {
 
         binding = FragmentTarefaBinding.inflate(getLayoutInflater());
         tarefaViewModel = new ViewModelProvider(this).get(TarefaViewModel.class);
-        calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        calendar = Calendar.getInstance(TimeZone.getDefault());
 
         if( getArguments() != null ){
             long id = (long) getArguments().get("tarefa_id");
@@ -130,8 +131,14 @@ public class TarefaFragment extends Fragment {
             public void onPositiveButtonClick(Object selection) {
 
                 if(materialDatePicker.getSelection() != null) {
+                    //Pegando a data do MaterialDatePicker que esta sempre em UTC
+                    Calendar calendarUTC = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+                    calendarUTC.setTimeInMillis(materialDatePicker.getSelection());
 
-                    calendar.setTimeInMillis(materialDatePicker.getSelection() );
+                    //Convertendo para o TimeZone do dispositivo.
+                    calendar.set(Calendar.YEAR, calendarUTC.get(Calendar.YEAR));
+                    calendar.set(Calendar.MONTH, calendarUTC.get(Calendar.MONTH));
+                    calendar.set(Calendar.DAY_OF_MONTH, calendarUTC.get(Calendar.DAY_OF_MONTH));
 
                     tarefaViewModel.setDateCalendar(calendar);
 

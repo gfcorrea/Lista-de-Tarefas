@@ -41,7 +41,7 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
     @Override
     public void onBindViewHolder(@NonNull ListaAtivosHolder holder, int position) {
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         calendar.setTimeInMillis(listaTarefas.get(position).getData());
 
         holder.binding.lblDescricao.setText(listaTarefas.get(position).getDescricao());
