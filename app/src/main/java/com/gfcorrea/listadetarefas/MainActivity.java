@@ -1,10 +1,8 @@
 package com.gfcorrea.listadetarefas;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.Navigation;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.databinding.ActivityMainBinding;
