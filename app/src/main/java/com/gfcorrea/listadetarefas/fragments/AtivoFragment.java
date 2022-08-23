@@ -2,6 +2,7 @@ package com.gfcorrea.listadetarefas.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,9 +19,6 @@ import java.util.List;
 
 public class AtivoFragment extends Fragment {
 
-    private FragmentAtivoBinding binding;
-    private List<TarefaModel> lista;
-
 
     public AtivoFragment() {
         // Required empty public constructor
@@ -32,11 +30,12 @@ public class AtivoFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentAtivoBinding.inflate(getLayoutInflater());
 
-        lista = AppDatabase.getInstance().tarefaDao().getAllAtivos();
+        FragmentAtivoBinding binding = FragmentAtivoBinding.inflate(getLayoutInflater());
+
+        List<TarefaModel> lista = AppDatabase.getInstance().tarefaDao().getAllAtivos();
 
         ListaAtivosAdapter adapter = new ListaAtivosAdapter(lista);
         binding.recylcerListaAtivos.setAdapter(adapter);

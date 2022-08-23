@@ -11,15 +11,14 @@ import com.gfcorrea.listadetarefas.R;
 import com.gfcorrea.listadetarefas.database.TarefaModel;
 import com.gfcorrea.listadetarefas.databinding.RecyclerItemTarefaAtivaBinding;
 
-import java.text.SimpleDateFormat;
+import android.text.format.DateFormat;
 import java.util.Calendar;
 import java.util.List;
 
 
 public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.ListaAtivosHolder> {
 
-    private List<TarefaModel> listaTarefas;
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private final List<TarefaModel> listaTarefas;
 
     public ListaAtivosAdapter(List<TarefaModel> listaTarefas) {
         this.listaTarefas = listaTarefas;
@@ -29,17 +28,16 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
     @Override
     public ListaAtivosHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ListaAtivosHolder(
-                RecyclerItemTarefaAtivaBinding.inflate(LayoutInflater.from( parent.getContext() ), parent, false)
+                RecyclerItemTarefaAtivaBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false)
         );
     }
-
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ListaAtivosHolder holder, int position) {
 
         holder.binding.lblDescricao.setText(listaTarefas.get(position).getDescricao());
-        holder.binding.lblData.setText( simpleDateFormat.format(listaTarefas.get(position).getData()) );
+        holder.binding.lblData.setText( DateFormat.format("dd:MM:yyyy   HH:mm", listaTarefas.get(position).getData()) );
 
         if(listaTarefas.get(position).getData() < Calendar.getInstance().getTimeInMillis() ){
             holder.binding.CVAtivos.setBackgroundResource(R.color.red);
@@ -54,7 +52,7 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
         return listaTarefas.size();
     }
 
-    public class ListaAtivosHolder extends RecyclerView.ViewHolder{
+    public static class ListaAtivosHolder extends RecyclerView.ViewHolder{
         RecyclerItemTarefaAtivaBinding binding;
 
         public ListaAtivosHolder(@NonNull RecyclerItemTarefaAtivaBinding binding) {

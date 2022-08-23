@@ -3,21 +3,34 @@ package com.gfcorrea.listadetarefas.viewmodel;
 import androidx.lifecycle.ViewModel;
 
 import com.gfcorrea.listadetarefas.database.TarefaModel;
+import com.gfcorrea.listadetarefas.repository.TarefaRepository;
+
+import java.util.Calendar;
 
 public class TarefaViewModel extends ViewModel {
 
     private final TarefaModel tarefa = new TarefaModel();
+    private final TarefaRepository tarefaRepository = new TarefaRepository();
+    private final Calendar calendar = Calendar.getInstance();
 
-    private long dataSelecionada = 0;
-
-    public long getDataSelecionada() {
-        return dataSelecionada;
+    public void salvarTarefa(){
+        tarefa.setData(calendar.getTimeInMillis());
+        tarefaRepository.inserir(tarefa);
     }
 
-    public void setDataSelecionada(long dataSelecionada) {
-        this.dataSelecionada = dataSelecionada;
+    public void setDateCalendar(Calendar calendarUser){
+        this.calendar.set(Calendar.YEAR, calendarUser.get(Calendar.YEAR));
+        this.calendar.set(Calendar.MONTH, calendarUser.get(Calendar.MONTH));
+        this.calendar.set(Calendar.DAY_OF_MONTH, calendarUser.get(Calendar.DAY_OF_MONTH));
     }
 
+    public void setTimeCalendar(Calendar calendarUser){
+        this.calendar.set(Calendar.HOUR_OF_DAY, calendarUser.get(Calendar.HOUR_OF_DAY));
+        this.calendar.set(Calendar.MINUTE, calendarUser.get(Calendar.MINUTE));
+        this.calendar.set(Calendar.SECOND, calendarUser.get(Calendar.SECOND));
+    }
 
-
+    public void setDescricao(String descricao) {
+        this.tarefa.setDescricao(descricao);
+    }
 }
