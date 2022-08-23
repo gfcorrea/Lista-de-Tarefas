@@ -37,7 +37,7 @@ public class ListaAtivosAdapter extends RecyclerView.Adapter<ListaAtivosAdapter.
     public void onBindViewHolder(@NonNull ListaAtivosHolder holder, int position) {
 
         holder.binding.lblDescricao.setText(listaTarefas.get(position).getDescricao());
-        holder.binding.lblData.setText( DateFormat.format("dd:MM:yyyy   HH:mm", listaTarefas.get(position).getData()) );
+        holder.binding.lblData.setText( DateFormat.format("dd/MM/yyyy   HH:mm", listaTarefas.get(position).getData()) );
 
         if(listaTarefas.get(position).getData() < Calendar.getInstance().getTimeInMillis() ){
             holder.binding.CVAtivos.setBackgroundResource(R.color.red);

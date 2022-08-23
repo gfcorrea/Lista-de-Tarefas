@@ -17,9 +17,6 @@ public class TarefaModel {
     @ColumnInfo(name = "data")
     private long data;
 
-    @ColumnInfo(name = "hora")
-    private long hora;
-
     @ColumnInfo(name = "concluido")
     private boolean concluido;
 
@@ -48,14 +45,6 @@ public class TarefaModel {
 
     public void setData(long data) {
         this.data = data;
-    }
-
-    public long getHora() {
-        return hora;
-    }
-
-    public void setHora(long hora) {
-        this.hora = hora;
     }
 
     public boolean isConcluido() {
