@@ -2,6 +2,7 @@ package com.gfcorrea.listadetarefas.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,7 +15,6 @@ import com.gfcorrea.listadetarefas.databinding.FragmentConcluidoBinding;
 
 
 public class ConcluidoFragment extends Fragment {
-    private FragmentConcluidoBinding binding;
 
     public ConcluidoFragment() {
         // Required empty public constructor
@@ -26,9 +26,10 @@ public class ConcluidoFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentConcluidoBinding.inflate(getLayoutInflater());
+
+        FragmentConcluidoBinding binding = FragmentConcluidoBinding.inflate(getLayoutInflater());
 
         ListaConcluidosAdapter adapter = new ListaConcluidosAdapter(AppDatabase.getInstance().tarefaDao().getAllConcluidos());
         binding.recylcerListaConcluido.setAdapter(adapter);
