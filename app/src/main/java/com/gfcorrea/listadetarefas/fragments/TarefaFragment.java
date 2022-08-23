@@ -47,7 +47,7 @@ public class TarefaFragment extends Fragment {
         tarefaViewModel = new ViewModelProvider(this).get(TarefaViewModel.class);
         calendar = Calendar.getInstance();
 
-        if( getArguments().get("tarefa_id") != null ){
+        if( getArguments() != null ){
             long id = (long) getArguments().get("tarefa_id");
             tarefaViewModel.carregarTarefa(id);
             calendar.setTimeInMillis(tarefaViewModel.getDateTimeInMillis());
