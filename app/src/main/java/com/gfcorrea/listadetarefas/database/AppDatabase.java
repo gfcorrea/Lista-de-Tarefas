@@ -1,6 +1,5 @@
 package com.gfcorrea.listadetarefas.database;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 
 import androidx.room.Database;

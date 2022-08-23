@@ -23,6 +23,9 @@ public interface TarefaDao {
     @Query("SELECT * FROM tarefa where concluido = 0 and data < :hoje order by data")
     List<TarefaModel> getAtrasados(long hoje);
 
+    @Query("SELECT * FROM tarefa where id = :id")
+    TarefaModel getById(long id);
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(TarefaModel... tarefaModel);

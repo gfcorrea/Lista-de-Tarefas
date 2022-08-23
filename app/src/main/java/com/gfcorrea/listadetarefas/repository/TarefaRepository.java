@@ -12,6 +12,10 @@ public class TarefaRepository {
         AppDatabase.getInstance().tarefaDao().insertAll(tarefa);
     }
 
+    public TarefaModel getById(long id){
+        return AppDatabase.getInstance().tarefaDao().getById(id);
+    }
+
     public List<TarefaModel> getListaFuturas() {
         return AppDatabase.getInstance().tarefaDao().getAllFuturas(Calendar.getInstance().getTimeInMillis());
     }

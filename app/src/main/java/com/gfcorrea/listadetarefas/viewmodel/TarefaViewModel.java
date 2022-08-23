@@ -9,13 +9,17 @@ import java.util.Calendar;
 
 public class TarefaViewModel extends ViewModel {
 
-    private final TarefaModel tarefa = new TarefaModel();
+    private TarefaModel tarefa = new TarefaModel();
     private final TarefaRepository tarefaRepository = new TarefaRepository();
     private final Calendar calendar = Calendar.getInstance();
 
     public void salvarTarefa(){
         tarefa.setData(calendar.getTimeInMillis());
         tarefaRepository.inserir(tarefa);
+    }
+
+    public void carregarTarefa(long id){
+      tarefa = tarefaRepository.getById(id);
     }
 
     public void setDateCalendar(Calendar calendarUser){
