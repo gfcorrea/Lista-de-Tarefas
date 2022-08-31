@@ -1,64 +1,58 @@
 package com.gfcorrea.listadetarefas.fragments;
 
 import android.graphics.Color;
-import android.os.Bundle;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.gfcorrea.listadetarefas.databinding.FragmentResumoBinding;
+import com.gfcorrea.listadetarefas.R;
 import com.gfcorrea.listadetarefas.viewmodel.ResumoViewModel;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@EFragment
+@EFragment(R.layout.fragment_resumo)
 public class ResumoFragment extends Fragment {
+    @ViewById
+    TextView TvNumTarefasFuturas;
 
-    private FragmentResumoBinding binding;
+    @ViewById
+    TextView TvNumTarefasConcluidas;
 
+    @ViewById
+    TextView TvNumTarefasAtrasadas;
 
-    public ResumoFragment() {
+    @ViewById
+    PieChart pieChartResumo;
 
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentResumoBinding.inflate(getLayoutInflater());
+    @AfterViews
+    public void afterViews(){
 
         final ResumoViewModel resumoViewModel = new ViewModelProvider(this).get(ResumoViewModel.class);
 
 
         final Observer<Integer> numFuturasObserver = (
-                s -> binding.TvNumTarefasFuturas.setText(String.valueOf(resumoViewModel.getNumFuturas().getValue()))
+                s -> TvNumTarefasFuturas.setText(String.valueOf(resumoViewModel.getNumFuturas().getValue()))
         );
 
         final Observer<Integer> numConcluidosObserver = (
-                s -> binding.TvNumTarefasConcluidas.setText(String.valueOf(resumoViewModel.getNumConcluidos().getValue()))
+                s -> TvNumTarefasConcluidas.setText(String.valueOf(resumoViewModel.getNumConcluidos().getValue()))
         );
 
         final Observer<Integer> numAtrasadosObserver = (
-                s -> binding.TvNumTarefasAtrasadas.setText(String.valueOf(resumoViewModel.getNumAtrasados().getValue() ))
+                s -> TvNumTarefasAtrasadas.setText(String.valueOf(resumoViewModel.getNumAtrasados().getValue() ))
         );
 
         resumoViewModel.getNumFuturas().observe( getViewLifecycleOwner(), numFuturasObserver);
@@ -67,26 +61,23 @@ public class ResumoFragment extends Fragment {
 
         resumoViewModel.atualizaValores();
 
-
         float totAtrasados = resumoViewModel.getNumAtrasados().getValue();
         float totAtivos = resumoViewModel.getNumFuturas().getValue();
         float totConcluidos = resumoViewModel.getNumConcluidos().getValue();
 
         setupPieChart();
         setPieData(totAtrasados, totAtivos, totConcluidos);
-
-        return binding.getRoot();
     }
 
     public void setupPieChart() {
-        binding.pieChartResumo.setDrawHoleEnabled(true);
-        binding.pieChartResumo.setUsePercentValues(true);
-        binding.pieChartResumo.setEntryLabelTextSize(12);
-        binding.pieChartResumo.setEntryLabelColor(Color.BLACK);
-        binding.pieChartResumo.setCenterText("Tarefas");
-        binding.pieChartResumo.setCenterTextSize(16);
-        binding.pieChartResumo.getDescription().setEnabled(false);
-        binding.pieChartResumo.getLegend().setEnabled(true);
+        pieChartResumo.setDrawHoleEnabled(true);
+        pieChartResumo.setUsePercentValues(true);
+        pieChartResumo.setEntryLabelTextSize(12);
+        pieChartResumo.setEntryLabelColor(Color.BLACK);
+        pieChartResumo.setCenterText("Tarefas");
+        pieChartResumo.setCenterTextSize(16);
+        pieChartResumo.getDescription().setEnabled(false);
+        pieChartResumo.getLegend().setEnabled(true);
     }
 
     public void setPieData(float totAtrasados, float totAtivos, float totConcluidos) {
@@ -108,11 +99,11 @@ public class ResumoFragment extends Fragment {
 
         PieData data = new PieData(dataset);
         data.setDrawValues(true);
-        data.setValueFormatter(new PercentFormatter(binding.pieChartResumo));
+        data.setValueFormatter(new PercentFormatter(pieChartResumo));
         data.setValueTextSize(12f);
         data.setValueTextColor(Color.BLACK);
 
-        binding.pieChartResumo.setData(data);
-        binding.pieChartResumo.invalidate();
+        pieChartResumo.setData(data);
+        pieChartResumo.invalidate();
     }
 }
