@@ -22,10 +22,12 @@ import com.gfcorrea.listadetarefas.viewmodel.TarefaViewModel;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import org.androidannotations.annotations.EFragment;
+
 import java.util.Calendar;
 import java.util.TimeZone;
 
-
+@EFragment
 public class TarefaFragment extends Fragment {
     private FragmentTarefaBinding binding;
     private TarefaViewModel tarefaViewModel;

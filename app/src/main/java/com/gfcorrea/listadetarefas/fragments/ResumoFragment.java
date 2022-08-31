@@ -21,9 +21,12 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import org.androidannotations.annotations.EFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@EFragment
 public class ResumoFragment extends Fragment {
 
     private FragmentResumoBinding binding;

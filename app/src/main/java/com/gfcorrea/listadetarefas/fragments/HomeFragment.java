@@ -1,22 +1,13 @@
 package com.gfcorrea.listadetarefas.fragments;
 
-import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
-
 import com.gfcorrea.listadetarefas.R;
-import com.gfcorrea.listadetarefas.databinding.FragmentHomeBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -27,18 +18,20 @@ import org.androidannotations.annotations.ViewById;
 public class HomeFragment extends Fragment {
 
     @ViewById
-    Button btnNovaTarefa;
-
-
+    BottomNavigationView bottomNavigationView;
 
     @AfterViews
     public void afterViews(){
+        //Em um fragment devemos usar o getChildFragmentManager
+        NavHostFragment navHostFragment = (NavHostFragment) getChildFragmentManager().findFragmentById(R.id.nav_host_view);
+        NavController navController = navHostFragment.getNavController();
 
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
 
     @Click
-    public void btnNovaTarefaClicked(View view){
-        Toast.makeText(view.getContext(), "Teste", Toast.LENGTH_SHORT).show();
+    public void btnNovaTarefaClicked(){
+        Navigation.findNavController(  getActivity().findViewById(R.id.nav_global_view)  ).navigate(R.id.action_homeFragment_to_tarefaFragment);
     }
 
 }

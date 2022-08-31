@@ -14,9 +14,11 @@ import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.database.TarefaModel;
 import com.gfcorrea.listadetarefas.databinding.FragmentAtivoBinding;
 
+import org.androidannotations.annotations.EFragment;
+
 import java.util.List;
 
-
+@EFragment
 public class AtivoFragment extends Fragment {
 
 

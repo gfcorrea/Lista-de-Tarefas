@@ -13,7 +13,9 @@ import com.gfcorrea.listadetarefas.adapter.ListaConcluidosAdapter;
 import com.gfcorrea.listadetarefas.database.AppDatabase;
 import com.gfcorrea.listadetarefas.databinding.FragmentConcluidoBinding;
 
+import org.androidannotations.annotations.EFragment;
 
+@EFragment
 public class ConcluidoFragment extends Fragment {
 
     public ConcluidoFragment() {

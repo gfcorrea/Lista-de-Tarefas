@@ -6,17 +6,14 @@
     app:startDestination="@id/navigationAtivo">
     <fragment
         android:id="@+id/navigationAtivo"
-        android:name="com.gfcorrea.listadetarefas.fragments.AtivoFragment"
-        android:label="Tarefas Ativas"
-        tools:layout="@layout/fragment_ativo" />
+        android:name="com.gfcorrea.listadetarefas.fragments.AtivoFragment_"
+        android:label="AtivoFragment_" />
     <fragment
         android:id="@+id/navigationConcluidos"
-        android:name="com.gfcorrea.listadetarefas.fragments.ConcluidoFragment"
-        android:label="Tarefas Concluídas"
-        tools:layout="@layout/fragment_concluido" />
+        android:name="com.gfcorrea.listadetarefas.fragments.ConcluidoFragment_"
+        android:label="ConcluidoFragment_" />
     <fragment
         android:id="@+id/navigationResumo"
-        android:name="com.gfcorrea.listadetarefas.fragments.ResumoFragment"
-        android:label="Resumo de suas Tarefas"
-        tools:layout="@layout/fragment_resumo" />
+        android:name="com.gfcorrea.listadetarefas.fragments.ResumoFragment_"
+        android:label="ResumoFragment_" />
 </navigation>

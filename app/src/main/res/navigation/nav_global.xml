@@ -2,23 +2,23 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_global">
+    android:id="@+id/nav_global"
+    app:startDestination="@id/homeFragment_">
 
-    <fragment
-        android:id="@+id/tarefaFragment"
-        android:name="com.gfcorrea.listadetarefas.fragments.TarefaFragment"
-        android:label="fragment_tarefa"
-        tools:layout="@layout/fragment_tarefa" >
-        <action
-            android:id="@+id/action_tarefaFragment_to_homeFragment"
-            app:destination="@id/homeFragment_" />
-    </fragment>
     <fragment
         android:id="@+id/homeFragment_"
         android:name="com.gfcorrea.listadetarefas.fragments.HomeFragment_"
         android:label="HomeFragment_" >
         <action
             android:id="@+id/action_homeFragment_to_tarefaFragment"
-            app:destination="@id/tarefaFragment" />
+            app:destination="@id/tarefaFragment_" />
+    </fragment>
+    <fragment
+        android:id="@+id/tarefaFragment_"
+        android:name="com.gfcorrea.listadetarefas.fragments.TarefaFragment_"
+        android:label="TarefaFragment_" >
+        <action
+            android:id="@+id/action_tarefaFragment_to_homeFragment"
+            app:destination="@id/homeFragment_" />
     </fragment>
 </navigation>
