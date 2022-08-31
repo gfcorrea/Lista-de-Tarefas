@@ -30,6 +30,10 @@ android {
         viewBinding true
     }
 
+    dataBinding{
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -48,5 +52,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
+    annotationProcessor "org.androidannotations:androidannotations:4.8.0"
+    implementation "org.androidannotations:androidannotations-api:4.8.0"
 
 }

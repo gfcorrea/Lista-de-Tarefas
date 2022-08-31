@@ -2,24 +2,17 @@ package com.gfcorrea.listadetarefas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-
 import com.gfcorrea.listadetarefas.database.AppDatabase;
-import com.gfcorrea.listadetarefas.databinding.ActivityMainBinding;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
 
+@EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
+    @AfterViews
+    public void afterViews() {
         AppDatabase.setContexto(getApplicationContext());
-
-
     }
 
 }
