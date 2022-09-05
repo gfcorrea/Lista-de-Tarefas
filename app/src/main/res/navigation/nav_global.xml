@@ -8,7 +8,9 @@
     <fragment
         android:id="@+id/homeFragment_"
         android:name="com.gfcorrea.listadetarefas.fragments.HomeFragment_"
-        android:label="HomeFragment_" >
+        android:label="HomeFragment_"
+        tools:layout="@layout/fragment_home"
+        >
         <action
             android:id="@+id/action_homeFragment_to_tarefaFragment"
             app:destination="@id/tarefaFragment_" />
@@ -16,7 +18,9 @@
     <fragment
         android:id="@+id/tarefaFragment_"
         android:name="com.gfcorrea.listadetarefas.fragments.TarefaFragment_"
-        android:label="TarefaFragment_" >
+        android:label="TarefaFragment_"
+        tools:layout="@layout/fragment_tarefa"
+        >
         <action
             android:id="@+id/action_tarefaFragment_to_homeFragment"
             app:destination="@id/homeFragment_" />

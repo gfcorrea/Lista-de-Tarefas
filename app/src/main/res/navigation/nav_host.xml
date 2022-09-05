@@ -7,13 +7,19 @@
     <fragment
         android:id="@+id/navigationAtivo"
         android:name="com.gfcorrea.listadetarefas.fragments.AtivoFragment_"
-        android:label="AtivoFragment_" />
+        android:label="AtivoFragment_"
+        tools:layout="@layout/fragment_ativo"
+        />
     <fragment
         android:id="@+id/navigationConcluidos"
         android:name="com.gfcorrea.listadetarefas.fragments.ConcluidoFragment_"
-        android:label="ConcluidoFragment_" />
+        android:label="ConcluidoFragment_"
+        tools:layout="@layout/fragment_concluido"
+        />
     <fragment
         android:id="@+id/navigationResumo"
         android:name="com.gfcorrea.listadetarefas.fragments.ResumoFragment_"
-        android:label="ResumoFragment_" />
+        android:label="ResumoFragment_"
+        tools:layout="@layout/fragment_resumo"
+        />
 </navigation>
