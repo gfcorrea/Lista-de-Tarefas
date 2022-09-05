@@ -55,6 +55,9 @@ dependencies {
     annotationProcessor "org.androidannotations:androidannotations:4.8.0"
     implementation "org.androidannotations:androidannotations-api:4.8.0"
 
+    // Required -- JUnit 4 framework
+    testImplementation 'junit:junit:4.12'
+
     // Dependência principal do Mockito
     testImplementation 'org.mockito:mockito-core:3.12.4'
     // Dependência do Mockito para testes no Android
