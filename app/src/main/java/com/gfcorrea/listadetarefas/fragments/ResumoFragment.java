@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.gfcorrea.listadetarefas.R;
+import com.gfcorrea.listadetarefas.repository.TarefaRepository;
 import com.gfcorrea.listadetarefas.viewmodel.ResumoViewModel;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -59,7 +60,8 @@ public class ResumoFragment extends Fragment {
         resumoViewModel.getNumConcluidos().observe( getViewLifecycleOwner(), numConcluidosObserver);
         resumoViewModel.getNumAtrasados().observe( getViewLifecycleOwner(), numAtrasadosObserver);
 
-        resumoViewModel.atualizaValores();
+        TarefaRepository tarefaRepository = new TarefaRepository();
+        resumoViewModel.atualizaValores(tarefaRepository);
 
         float totAtrasados = resumoViewModel.getNumAtrasados().getValue();
         float totAtivos = resumoViewModel.getNumFuturas().getValue();

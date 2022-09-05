@@ -11,9 +11,8 @@ public class ResumoViewModel extends ViewModel {
     private MutableLiveData<Integer> numConcluidos;
     private MutableLiveData<Integer> numAtrasados;
 
-    private final TarefaRepository tarefaRepository = new TarefaRepository();
 
-    public void atualizaValores(){
+    public void atualizaValores(TarefaRepository tarefaRepository){
         numFuturas.setValue(tarefaRepository.getTotalFuturas());
         numConcluidos.setValue(tarefaRepository.getTotalConcluidos());
         numAtrasados.setValue(tarefaRepository.getTotalAtrasados());
