@@ -15,7 +15,7 @@ A ideia é bastante simples mas é um app que abrange bastante do básico de des
 
 ## :hammer: Funcionalidades do projeto
 
-- Criar uma listas de Tarefas, podemo marcar as tarefas como concluídas.
+- Criar uma listas de Tarefas, podemos marcar as tarefas como concluídas.
 - Ver um resumo de suas tarefas divididas entre Tarefas Futuras, Tarefas Atrasadas e Tarefas Concluídas.
 - Receber notificações sobre o prazo das tarefas: Em desenvolvimento.
 
